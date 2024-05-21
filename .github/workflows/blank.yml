@@ -1,9 +1,0 @@
-// This script runs outside the game and won't modify the game itself
-
-// Function to simulate earning gems with a multiplier
-function earnGems(amount) {
-  console.log("Imagine you earned " + amount * 5 + " gems!");
-}
-
-// Simulate completing a level and earning 100 gems
-earnGems(100);
