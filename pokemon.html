@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro de Pokémons</title>
+  <style>
+  </style>
+</head>
+<body>
+  <h1>Cadastro de Pokémons</h1>
+  <form id="pokemonForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome"><br>
+    <label for="nivel">Nível:</label>
+    <input type="number" id="nivel" name="nivel"><br>
+    <label for="sexo">Sexo:</label>
+    <input type="text" id="sexo" name="sexo"><br>
+    <label for="hpAtual">HP Atual:</label>
+    <input type="number" id="hpAtual" name="hpAtual"><br>
+    <label for="hpMaximo">HP Máximo:</label>
+    <input type="number" id="hpMaximo" name="hpMaximo"><br>
+    <button type="button" onclick="adicionarPokemon()">Cadastrar</button>
+  </form>
+  <div id="resultados"></div>
+
+  <script>
+    const pokemons = [];
+
+    function adicionarPokemon() {
+      const nome = document.getElementById('nome').value;
+      const nivel = parseInt(document.getElementById('nivel').value);
+      const sexo = document.getElementById('sexo').value;
+      const hpAtual = parseInt(document.getElementById('hpAtual').value);
+      const hpMaximo = parseInt(document.getElementById('hpMaximo').value);
+
+      if (nome && nivel && sexo && hpAtual && hpMaximo) {
+        pokemons.push({
+          nome,
+          nivel,
+          sexo,
+          hpAtual,
+          hpMaximo
+        });
+
+        const resultado = document.getElementById('resultados');
+        resultado.innerHTML += `${nome} cadastrado com sucesso!<br>`;
+
+        document.getElementById('pokemonForm').reset();
+      } else {
+        alert('Por favor, preencha todos os campos.');
+      }
+    }
+  </script>
+</body>
+</html>
